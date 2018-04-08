@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="dommy.js"></script> -->
+    <script src="./Dommy.js"></script>
+</head>
+<body>
+    <p>Test Parahraph</p>
+    <ul class="ul-test">
+        <li id="i1" test="a1" class="test">test li</li>
+        <li id="i2" test="a2" class="test">test li</li>
+        <li id="i3" test="a3" class="test">test li</li>
+        <li id="i4" test="a4" class="test">test li</li>
+    </ul>
+    <style>
+    .green-bg {
+        background-color: seagreen;
+    }
+    </style>
+<script>
+
+    const D = new Dommy;
+    
+    D.select('li')
+        .parent()
+        .css({borderLeft: '1px solid #eee', listStyle: 'none'})
+        .children()
+        .html('<b>test</b>')
+        .addClass('green-bg')
+        .removeClass('test')
+        .attr('onclick', 'alert()')
+        .eq(0)
+        .nextSibling()
+        .text('nextsibling')
+        .nextSibling()
+        .empty()
+        .parent()
+        .children()
+        .css('min-height', '20px');
+
+</script>
+</body>
+</html>

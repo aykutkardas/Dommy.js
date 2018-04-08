@@ -1,0 +1,27 @@
+{
+  "name": "dommy",
+  "version": "1.0.0",
+  "description": "HTML Dom Manipulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aykutkardas/atolye15-keys.git"
+  },
+  "keywords": [
+    "HTML",
+    "DOM",
+    "Manipulation"
+  ],
+  "author": "Aykut Kardaş",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aykutkardas/atolye15-keys/issues"
+  },
+  "homepage": "https://github.com/aykutkardas/atolye15-keys#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}
