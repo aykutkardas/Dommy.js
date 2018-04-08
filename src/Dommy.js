@@ -2,27 +2,11 @@
  * Dommy
  * HTML Dom Manipulation
  * Author: Aykut Kardaş
- * Github: http://github.com/aykutkardas
+ * Github: http://github.com/aykutkardas/Dommy.js
  * Email:  aykutkrds@gmail.com
  */
 
 class Dommy extends Array {
-
-	// Bir eleman seçer
-	select(el) {
-		this.reset().push(document.querySelector(el))
-
-		return this
-	}
-
-
-	// Tüm elemanları seçer
-	selectAll(el) {
-		let els = document.querySelectorAll(el)
-		this.transfer(els)
-
-		return this
-	}
 
 	// Seçili Eleman listesini temizler
 	reset() {
@@ -40,6 +24,21 @@ class Dommy extends Array {
 		this.reset()
 		for (let i = 0; i < arr.length; i++)
 			this.push(arr[i])
+
+		return this
+	}
+
+	// Bir eleman seçer
+	select(el) {
+		this.reset().push(document.querySelector(el))
+
+		return this
+	}
+
+	// Tüm elemanları seçer
+	selectAll(el) {
+		let els = document.querySelectorAll(el)
+		this.transfer(els)
 
 		return this
 	}
@@ -191,7 +190,7 @@ class Dommy extends Array {
 	// css(key: object) Seçili elemanlara nesne tipindeki css özelliklerini verir
 	// css(key: string, value: string) Seçili elemanlara belirtilen css özelliklerini verir.
 	css(key, val) {
-		if(arguments.length == 2) {
+		if (arguments.length == 2) {
 
 			this.map((el) => {
 				el.style[key] = val
@@ -199,29 +198,24 @@ class Dommy extends Array {
 			return this
 
 		} else {
-			
-			if(typeof key === 'object') {
+
+			if (typeof key === 'object') {
 				this.map((el) => {
 					Object.assign(el.style, key)
 				})
 
 				return this
-			
+
 			} else {
 
-				if(this.first().style[key] === '') {
-					return document
-						.defaultView.getComputedStyle(this.first())[key]
-				} else {
+				if (this.first().style[key] === '')
+					return document.defaultView.getComputedStyle(this.first())[key]
+				else
 					return this.first().style[key]
-				}
-				
+
 			}
 
 		}
 	}
-
-
-
 
 }
